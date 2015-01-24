@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      Cursos
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+           <th>Nome</th>
+           <th>Descrição</th>
+           <th>Status</th>
+           <th>Ações</th>
+         </tr>
+       </thead>
+       <tbody>
+         <%@courses.each do |course|%>
+         <tr>
+          <td><%= course.name %></td>
+          <td><%= course.description%></td>
+          <td><%= status_course course.status%></td>
+          <td>
+          <%= link_to "Show", course, :class=>"btn btn-primary" %>
+            <%= link_to "Edit", edit_course_path(course), :class=>"btn btn-primary" %>
+            <%= link_to "Delete", course, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, :class=>"btn btn-primary" %>
+         </td>
+       </tr>
+       <%end%>
+     </tbody>
+   </table>
+ </div>
+  <div class="text-center">
+    <%= will_paginate @courses, :previous_label => "Anterior", :next_label => "Próximo"  %>
+  </div>
+   <%= link_to 'Novo Curso', new_course_path, :class=>"btn btn-primary" %>
+</div>
+</div>
+
+
+

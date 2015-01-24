@@ -1,0 +1,124 @@
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @students.count%></div>
+                                        <div>Estudantes!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="<%= students_path %>">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Visualizar</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-mortar-board fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @courses.count%></div>
+                                        <div>Cursos!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="<%= courses_path %>">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Visualizar</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-book fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @classrooms.count%></div>
+                                        <div>Matriculas!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="<%= classrooms_path %>">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Visualizar</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Últimos Estudantes </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                <% @students.each do |student|%>
+                                    <a href="#" class="list-group-item">
+                                        <span class="badge"><%= student.created_at.strftime("%d/%m/%Y %H:%M") %></span>
+                                        <i class="fa fa-fw fa-users"></i> <%= student.name%>
+                                    </a>
+                                <%end%> 
+                                </div>
+                                <div class="text-right">
+                                    <%= link_to raw("Visualizar todos <i class='fa fa-arrow-circle-right'></i>"), students_path  %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Últimos Cursos</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                <% @courses.each do |course|%>
+                                    <a href="#" class="list-group-item">
+                                        <span class="badge"><%= course.created_at.strftime("%d/%m/%Y %H:%M")%></span>
+                                        <i class="fa fa-fw fa-calendar"></i> <%= course.name %>
+                                    </a>
+                                <%end%>
+                                </div>
+                                <div class="text-right">
+                                    <%= link_to raw("Visualizar todos <i class='fa fa-arrow-circle-right'></i>"), courses_path  %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
