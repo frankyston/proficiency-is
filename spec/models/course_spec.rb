@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Course, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Course do
+  describe "Create Course" do
+  	it "object course create is valid?" do
+	    course = Course.new({ 
+	      name: "Redes de Computadores",
+	      description: "Fazendo computadores conversarem",
+	      status: ""
+	    })
+
+	    expect(course).to be_valid
+	  end
+  end
 end
